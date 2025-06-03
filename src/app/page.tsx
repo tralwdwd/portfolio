@@ -1,4 +1,4 @@
-"use client";
+8"use client";
 
 import Image from "next/image";
 
@@ -49,30 +49,31 @@ const projects: Project[] = [
       <div className="w-full max-w-5xl mt-8 max-h-[32rem] overflow-y-auto px-2">
         <ul className="space-y-8 flex items-center flex-col justify-center">
           {projects.map((project, idx) => (
-            <li key={idx} className="border-2 border-spotify-green rounded-2xl p-6 bg-gradient-to-br from-stone-700 via-stone-800 to-stone-900 shadow-xl w-full flex flex-row gap-8 items-center hover:scale-[1.0] scale-[0.95] transition-transform duration-200">
-              {project.image && (
-                <div className="flex-shrink-0 w-[400px] h-[225px] relative overflow-hidden rounded-xl shadow-lg border border-stone-500">
-                  <Image
-                    src={project.image}
-                    alt={project.title + ' project image'}
-                    fill
-                    className="object-cover"
-                    style={{ aspectRatio: '16/9' }}
-                    priority={idx === 0}
-                  />
-                </div>
-              )}
-              <div className="flex flex-col justify-center flex-1 min-w-0">
-                <h3 className="text-2xl font-bold mb-2 text-spotify-green truncate">{project.title}</h3>
-                <p className="mb-4 text-lg text-stone-200 break-words">{project.description}</p>
-                {project.link && (
-                  <a href={project.link} target="_blank" className="inline-block px-4 py-2 bg-spotify-green  font-semibold rounded-lg shadow hover:bg-green-600 transition-colors">Live Website</a>
-                )}
-                {project.source && (
-                  <a href={project.source} target="_blank" className="inline-block px-4 py-2 bg-spotify-green  font-semibold rounded-lg shadow hover:bg-green-600 transition-colors">View Source</a>
-                )}
-              </div>
-            </li>
+            <li key={idx} className="border-2 border-spotify-green rounded-2xl p-6 bg-gradient-to-br from-stone-700 via-stone-800 to-stone-900 shadow-xl w-full flex flex-col md:flex-row gap-6 md:gap-8 items-center hover:scale-[1.0] scale-[0.95] transition-transform duration-200">
+  {project.image && (
+    <div className="w-full md:w-[400px] aspect-video relative overflow-hidden rounded-xl shadow-lg border border-stone-500">
+      <Image
+        src={project.image}
+        alt={project.title + ' project image'}
+        fill
+        className="object-cover"
+        priority={idx === 0}
+      />
+    </div>
+  )}
+  <div className="flex flex-col justify-center flex-1 min-w-0">
+    <h3 className="text-2xl font-bold mb-2 text-spotify-green">{project.title}</h3>
+    <p className="mb-4 text-lg text-stone-200">{project.description}</p>
+    <div className="flex gap-4 flex-wrap">
+      {project.link && (
+        <a href={project.link} target="_blank" className="inline-block px-4 py-2 bg-spotify-green font-semibold rounded-lg shadow hover:bg-green-600 transition-colors">Live Website</a>
+      )}
+      {project.source && (
+        <a href={project.source} target="_blank" className="inline-block px-4 py-2 bg-spotify-green font-semibold rounded-lg shadow hover:bg-green-600 transition-colors">View Source</a>
+      )}
+    </div>
+  </div>
+</li>
           ))}
         </ul>
       </div>
