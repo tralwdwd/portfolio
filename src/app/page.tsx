@@ -1,103 +1,89 @@
+"use client";
+
 import Image from "next/image";
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
+export default function Home() {
+  
+interface Project {
+  title: string;
+  description: string;
+  source?: string;
+  link?: string;
+  image?: string;
+}
+
+const projects: Project[] = [
+  {
+    title: "WordleWacker",
+    description: "A chrome extension to solve wordle automatically.",
+    source: "https://github.com/tralwdwd/wordlewacker",
+    image: "https://qdbagc9qmnskrpmv.public.blob.vercel-storage.com/Screenshot%202025-06-03%20204820-T1C524vMXVowlb7Nwkne5ELC9K9Tbz.png"
+  },
+   {
+    title: "windows-cat",
+    description: "Unix cat command for windows written in rust.",
+    source: "https://github.com/tralwdwd/windows-cat",
+    image: "https://ondemand.bannerbear.com/signedurl/D0nJ4XLedwbENRZa1x/image.jpg?modifications=W3sibmFtZSI6InJlcG8iLCJ0ZXh0IjoidHJhbHdkd2QgLyAqd2luZG93cy1jYXQqIn0seyJuYW1lIjoiZGVzYyIsInRleHQiOiJ1bml4IGNhdCBjb21tYW5kIGZvciB3aW5kb3dzIHdyaXR0ZW4gaW4gcnVzdCJ9LHsibmFtZSI6ImF2YXRhcjUiLCJoaWRlIjp0cnVlfSx7Im5hbWUiOiJhdmF0YXI0IiwiaGlkZSI6dHJ1ZX0seyJuYW1lIjoiYXZhdGFyMyIsImhpZGUiOnRydWV9LHsibmFtZSI6ImF2YXRhcjIiLCJoaWRlIjp0cnVlfSx7Im5hbWUiOiJhdmF0YXIxIiwiaW1hZ2VfdXJsIjoiaHR0cHM6Ly9hdmF0YXJzLmdpdGh1YnVzZXJjb250ZW50LmNvbS91Lzc5NzkxNTE3P3Y9NCJ9LHsibmFtZSI6ImNvbnRyaWJ1dG9ycyIsInRleHQiOiJ0cmFsd2R3ZCJ9LHsibmFtZSI6InN0YXJzIiwidGV4dCI6IjAifV0&s=c4d5730ea46260a0da767029a69f1bcfc2f12b3543c4d0cec25ecadc57dd4459"
+   },
+   {
+    title: "Side Project Tracker",
+    description: "Ever wanted a way to manage all those side projects you created? Side Project Tracker is the perfect tool!",
+    source: "https://github.com/tralwdwd/side-proj-tracker",
+    link: "https://projects.tralwdwd.xyz",
+    image: "https://qdbagc9qmnskrpmv.public.blob.vercel-storage.com/Screenshot%202025-06-03%20193803-CZQvCryQ9eADtxn9ZKGdiy8sf3zCJD.png",
+   }
+];
+
+
+  return (
+    <div className="m-5">
+      <div className="flex flex-col items-center gap-4">
+        <h3 className="text-center text-2xl">
+          "Programmers are the architects of the digital age. They build the systems, applications, and tools that shape our world, from the apps on our smartphones to the complex software running our businesses. Without programmers, the technology we rely on wouldn't exist. They solve problems, innovate, and bring ideas to life."
+        </h3>
+        <h1 className="text-3xl mb-1.5 font-bold mt-5">About Me</h1>
+      <h3 className="text-xl text-center">At just 14 years old, I am a passionate and driven developer with hands-on experience in Go, Rust, JavaScript, Python, Flutter/Dart, as well as full-stack development. My journey in programming is fueled by curiosity and a relentless desire to build, learn, and innovate. I thrive on solving complex problems, exploring new technologies, and turning ideas into reality. With a strong foundation across multiple languages and frameworks, I am committed to continuous growth and making a positive impact through code. The future is bright, and I am just getting started.</h3>
+      
+      <h3 className="text-3xl mb-1.5 font-bold mt-5">My Work</h3>
+      <div className="w-full max-w-5xl mt-8 max-h-[32rem] overflow-y-auto px-2">
+        <ul className="space-y-8 flex items-center flex-col justify-center">
+          {projects.map((project, idx) => (
+            <li key={idx} className="border-2 border-spotify-green rounded-2xl p-6 bg-gradient-to-br from-stone-700 via-stone-800 to-stone-900 shadow-xl w-full flex flex-row gap-8 items-center hover:scale-[1.0] scale-[0.95] transition-transform duration-200">
+              {project.image && (
+                <div className="flex-shrink-0 w-[400px] h-[225px] relative overflow-hidden rounded-xl shadow-lg border border-stone-500">
+                  <Image
+                    src={project.image}
+                    alt={project.title + ' project image'}
+                    fill
+                    className="object-cover"
+                    style={{ aspectRatio: '16/9' }}
+                    priority={idx === 0}
+                  />
+                </div>
+              )}
+              <div className="flex flex-col justify-center flex-1 min-w-0">
+                <h3 className="text-2xl font-bold mb-2 text-spotify-green truncate">{project.title}</h3>
+                <p className="mb-4 text-lg text-stone-200 break-words">{project.description}</p>
+                {project.link && (
+                  <a href={project.link} target="_blank" className="inline-block px-4 py-2 bg-spotify-green  font-semibold rounded-lg shadow hover:bg-green-600 transition-colors">Live Website</a>
+                )}
+                {project.source && (
+                  <a href={project.source} target="_blank" className="inline-block px-4 py-2 bg-spotify-green  font-semibold rounded-lg shadow hover:bg-green-600 transition-colors">View Source</a>
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+        <a href="https://github.com/tralwdwd" target="_blank" className="mt-4 flex items-center gap-2 mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor" className="text-black bg-white rounded-[20px] hover:text-spotify-green transition-colors">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.263.82-.582 0-.288-.012-1.243-.017-2.252-3.338.726-4.042-1.415-4.042-1.415-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.606-2.665-.304-5.466-1.332-5.466-5.931 0-1.31.468-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.984-.399 3.003-.404 1.018.005 2.046.138 3.006.404 2.289-1.552 3.295-1.23 3.295-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.804 5.625-5.475 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.699.825.58C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span>My Github Page</span>
         </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        
+      </div>
     </div>
   );
 }
