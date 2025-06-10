@@ -24,7 +24,7 @@ const projects: Project[] = [
     title: "windows-cat",
     description: "Unix cat command for windows written in rust.",
     source: "https://github.com/tralwdwd/windows-cat",
-    image: "https://ondemand.bannerbear.com/signedurl/D0nJ4XLedwbENRZa1x/image.jpg?modifications=W3sibmFtZSI6InJlcG8iLCJ0ZXh0IjoidHJhbHdkd2QgLyAqd2luZG93cy1jYXQqIn0seyJuYW1lIjoiZGVzYyIsInRleHQiOiJ1bml4IGNhdCBjb21tYW5kIGZvciB3aW5kb3dzIHdyaXR0ZW4gaW4gcnVzdCJ9LHsibmFtZSI6ImF2YXRhcjUiLCJoaWRlIjp0cnVlfSx7Im5hbWUiOiJhdmF0YXI0IiwiaGlkZSI6dHJ1ZX0seyJuYW1lIjoiYXZhdGFyMyIsImhpZGUiOnRydWV9LHsibmFtZSI6ImF2YXRhcjIiLCJoaWRlIjp0cnVlfSx7Im5hbWUiOiJhdmF0YXIxIiwiaW1hZ2VfdXJsIjoiaHR0cHM6Ly9hdmF0YXJzLmdpdGh1YnVzZXJjb250ZW50LmNvbS91Lzc5NzkxNTE3P3Y9NCJ9LHsibmFtZSI6ImNvbnRyaWJ1dG9ycyIsInRleHQiOiJ0cmFsd2R3ZCJ9LHsibmFtZSI6InN0YXJzIiwidGV4dCI6IjAifV0&s=c4d5730ea46260a0da767029a69f1bcfc2f12b3543c4d0cec25ecadc57dd4459"
+    image: "https://qdbagc9qmnskrpmv.public.blob.vercel-storage.com/image-FXbN07vU0R5GuyN9xfQnqbAMpcWLlo.jpg"
    },
    {
     title: "Side Project Tracker",
@@ -49,7 +49,7 @@ const projects: Project[] = [
       <div className="w-full max-w-5xl mt-8 max-h-[32rem] overflow-y-auto px-2">
         <ul className="space-y-8 flex items-center flex-col justify-center">
           {projects.map((project, idx) => (
-            <li key={idx} className="border-2 border-spotify-green rounded-2xl p-6 bg-gradient-to-br from-stone-700 via-stone-800 to-stone-900 shadow-xl w-full flex flex-col md:flex-row gap-6 md:gap-8 items-center hover:scale-[1.0] scale-[0.95] transition-transform duration-200">
+            <li key={idx} className="border-2 border-spotify-green rounded-2xl p-6 bg-gradient-to-br from-[whitesmoke] via-[rgb(240,240,240)] to-[rgb(235,235,235)] dark:from-stone-700 dark:via-stone-800 dark:to-stone-900 shadow-xl w-full flex flex-col md:flex-row gap-6 md:gap-8 items-center hover:scale-[1.0] scale-[0.95] transition-transform duration-200">
   {project.image && (
     <div className="w-full md:w-[400px] aspect-video relative overflow-hidden rounded-xl shadow-lg border border-stone-500">
       <Image
@@ -63,7 +63,7 @@ const projects: Project[] = [
   )}
   <div className="flex flex-col justify-center flex-1 min-w-0">
     <h3 className="text-2xl font-bold mb-2 text-spotify-green">{project.title}</h3>
-    <p className="mb-4 text-lg text-stone-200">{project.description}</p>
+    <p className="mb-4 text-lg dark:text-stone-200">{project.description}</p>
     <div className="flex gap-4 flex-wrap">
       {project.link && (
         <a href={project.link} target="_blank" className="inline-block px-4 py-2 bg-spotify-green font-semibold rounded-lg shadow hover:bg-green-600 transition-colors">Live Website</a>
