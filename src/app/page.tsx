@@ -1,40 +1,35 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { Client, TablesDB } from "appwrite"
 
 
 export default function Home() {
+  const [projects, setProjects] = useState<Project[]>([])
   
-interface Project {
-  title: string;
-  description: string;
-  source?: string;
-  link?: string;
-  image?: string;
-}
+  interface Project {
+    title: string;
+    description: string;
+    source?: string;
+    link?: string;
+    image?: string;
+  }
 
-const projects: Project[] = [
-  {
-    title: "WordleWacker",
-    description: "A chrome extension to solve wordle automatically.",
-    source: "https://github.com/tralwdwd/wordlewacker",
-    image: "https://qdbagc9qmnskrpmv.public.blob.vercel-storage.com/Screenshot%202025-06-03%20204820-T1C524vMXVowlb7Nwkne5ELC9K9Tbz.png"
-  },
-   {
-    title: "windows-cat",
-    description: "Unix cat command for windows written in rust.",
-    source: "https://github.com/tralwdwd/windows-cat",
-    image: "https://qdbagc9qmnskrpmv.public.blob.vercel-storage.com/image-FXbN07vU0R5GuyN9xfQnqbAMpcWLlo.jpg"
-   },
-   {
-    title: "Side Project Tracker",
-    description: "Ever wanted a way to manage all those side projects you created? Side Project Tracker is the perfect tool!",
-    source: "https://github.com/tralwdwd/side-proj-tracker",
-    link: "https://projects.tralwdwd.xyz",
-    image: "https://qdbagc9qmnskrpmv.public.blob.vercel-storage.com/Screenshot%202025-06-03%20193803-CZQvCryQ9eADtxn9ZKGdiy8sf3zCJD.png",
-   }
-];
-
+  useEffect(() => {
+    async function fetchProjects() {
+      let client = new Client()
+        .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT as string) 
+        .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID as string);
+      let database = new TablesDB(client);
+      let res = await database.listRows({
+        databaseId: "68b6dc490009c69f76ba",
+        tableId: "projects",
+      })
+      setProjects(res.rows as unknown as Project[]);
+    }
+    fetchProjects();
+  }, [])
 
   return (
     <div className="m-5">
