@@ -38,12 +38,12 @@ export default function Home() {
           "Programmers are the architects of the digital age. They build the systems, applications, and tools that shape our world, from the apps on our smartphones to the complex software running our businesses. Without programmers, the technology we rely on wouldn't exist. They solve problems, innovate, and bring ideas to life."
         </h3>
         <h1 className="text-3xl mb-1.5 font-bold mt-5">About Me</h1>
-      <h3 className="text-xl text-center">At just 14 years old, I am a passionate and driven developer with hands-on experience in Go, Rust, JavaScript, Python, Flutter/Dart, as well as full-stack development. My journey in programming is fueled by curiosity and a relentless desire to build, learn, and innovate. I thrive on solving complex problems, exploring new technologies, and turning ideas into reality. With a strong foundation across multiple languages and frameworks, I am committed to continuous growth and making a positive impact through code. The future is bright, and I am just getting started.</h3>
+      <h3 className="text-xl text-center">At just 15 years old, I am a passionate and driven developer with hands-on experience in Go, Rust, JavaScript, Python, Flutter/Dart, as well as full-stack development. My journey in programming is fueled by curiosity and a relentless desire to build, learn, and innovate. I thrive on solving complex problems, exploring new technologies, and turning ideas into reality. With a strong foundation across multiple languages and frameworks, I am committed to continuous growth and making a positive impact through code. The future is bright, and I am just getting started.</h3>
       
       <h3 className="text-3xl mb-1.5 font-bold mt-5">My Work</h3>
       <div className="w-full max-w-5xl mt-8 max-h-[32rem] overflow-y-auto px-2">
         <ul className="space-y-8 flex items-center flex-col justify-center">
-          {projects.map((project, idx) => (
+          {projects.length > 0 ? projects.map((project, idx) => (
             <li key={idx} className="border-2 border-spotify-green rounded-2xl p-6 bg-gradient-to-br from-[whitesmoke] via-[rgb(240,240,240)] to-[rgb(235,235,235)] dark:from-stone-700 dark:via-stone-800 dark:to-stone-900 shadow-xl w-full flex flex-col md:flex-row gap-6 md:gap-8 items-center hover:scale-[1.0] scale-[0.95] transition-transform duration-200">
   {project.image && (
     <div className="w-full md:w-[400px] aspect-video relative overflow-hidden rounded-xl shadow-lg border border-stone-500">
@@ -69,7 +69,7 @@ export default function Home() {
     </div>
   </div>
 </li>
-          ))}
+          )) : <h1>Loading...</h1>}
         </ul>
       </div>
         <a href="https://github.com/tralwdwd" target="_blank" className="mt-4 flex items-center gap-2 mb-4">
